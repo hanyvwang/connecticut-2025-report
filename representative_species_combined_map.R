@@ -11,7 +11,7 @@ library(patchwork)
 library(cowplot)
 library(grid)
 
-setwd("/Users/macbook/Desktop/mosquito/data")
+setwd("/Users/macbook/Desktop/data")
 options(tigris_use_cache = TRUE)
 
 # ----------------------------------------------------------
@@ -37,7 +37,7 @@ y_lim   <- c(ct_bbox["ymin"] - 0.02, ct_bbox["ymax"] + 0.02)
 # 2. Trap site coordinates
 # ----------------------------------------------------------
 
-trap_raw <- read_excel("trap_sites.xlsx", sheet = "Sheet2")
+trap_raw <- read_excel("trapping_sites_location.xlsx", sheet = "Sheet2")
 colnames(trap_raw) <- c("town", "trap_location", "site_code",
                         "lat_raw", "lon_raw", "years_active")
 
@@ -94,7 +94,7 @@ sheets <- c("Aedes albopictus 2001-2025",
             "Culex pipiens 2001-2025",
             "Culiseta melanura 2001-2025")
 
-mosq_raw <- map_dfr(sheets, ~ read_excel("species.xlsx", sheet = .x))
+mosq_raw <- map_dfr(sheets, ~ read_excel("representative_species.xlsx", sheet = .x))
 colnames(mosq_raw) <- c("species", "site", "town", "county",
                         "trap_type", "date", "cdc_week",
                         "accession", "n_mosquitoes", "virus", "comments")
