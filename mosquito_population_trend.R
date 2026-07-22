@@ -12,8 +12,9 @@ library(ggplot2)
 library(patchwork)   # install.packages("patchwork") if needed
 
 # ── 1. Paths ────────────────────────────────────────────────
-species_path <- "/Users/macbook/Desktop/mosquito/data/species.xlsx"
-total_path   <- "/Users/macbook/Desktop/mosquito/data/total_mosquito.xlsx"
+setwd("/Users/macbook/Desktop/data")
+species_path <- "representative_species.xlsx"
+total_path   <- "total_mosquito.xlsx"
 
 # ── 2. 4-species stacked data (same as original script) ─────
 sheets <- excel_sheets(species_path)
