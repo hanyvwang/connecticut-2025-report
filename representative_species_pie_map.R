@@ -13,7 +13,7 @@ library(patchwork)
 library(cowplot)
 library(grid)
 
-setwd("/Users/macbook/Desktop/mosquito/data")
+setwd("/Users/macbook/Desktop/data")
 options(tigris_use_cache = TRUE)
 
 # ----------------------------------------------------------
@@ -49,7 +49,7 @@ sheets <- c(
 
 mosq_raw <- map_dfr(
   sheets,
-  ~ read_excel("species.xlsx", sheet = .x)
+  ~ read_excel("representative_species.xlsx", sheet = .x)
 )
 
 # Rename columns
@@ -77,7 +77,7 @@ mosq <- mosq_raw %>%
 # ----------------------------------------------------------
 # 3. Load trap site coordinates from trap_sites.xlsx (Sheet2)
 # ----------------------------------------------------------
-trap_raw <- read_excel("trap_sites.xlsx", sheet = "Sheet2")
+trap_raw <- read_excel("trapping_sites_location.xlsx", sheet = "Sheet2")
 
 colnames(trap_raw) <- c(
   "town", "trap_location", "site_code",
